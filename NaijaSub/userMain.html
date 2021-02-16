@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<!--SPA for naijasub web App-->
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>
+  NaijaSub.. online platform for cheap airtime, data and other allied services transactions
+</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="./lib/css/w3.css">
+<link href="./lib/css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="./lib/css/font-awesome.min.css">
+
+<style>
+    .w3-myfont {
+      font-family: "Comic Sans MS";
+    }
+</style>
+
+</head>
+
+<body class="w3-light-grey w3-myfont" id="homepage">
+
+  <section class="w3-top w3-black w3-card-4">
+    <div class="w3-bar w3-wide w3-padding w3-card-4">
+      <span class="w3-bar-item"><b class="w3-xxlarge w3-text-green">NaijaSub</b></span>
+      <!-- Float links to the right. Hide them on small screens -->
+      <span class="w3-right w3-hide-medium w3-hide-small">
+        <a href="#homepage" class="w3-bar-item w3-button w3-large"><b>Homepage</b></a>
+
+        <!--<div class="w3-bar-item">-->
+          <div class="w3-dropdown-click">
+
+            <button class="w3-button" onclick="showDrop()">
+              <b class="w3-large">Services</b><i class="fa fa-caret-down"></i>
+            </button>
+
+            <div id="dropItems" class="w3-dropdown-content w3-bar-block w3-card-4">
+
+              <a href="#trade_airtime" class="w3-bar-item w3-button"><b>Trade Airtime</b></a>
+              <div class="w3-border-bottom"></div>
+
+              <a href="#purchase_data" class="w3-bar-item w3-button"><b>Purchase Data</b></a>
+              <div class="w3-border-bottom"></div>
+
+              <a href="#trade_bitcoin" class="w3-bar-item w3-button"><b>Trade Bitcoin</b></a>
+              <div class="w3-border-bottom"></div>
+
+              <a href="#buy_load_epin" class="w3-bar-item w3-button"><b>Buy and Load Epin</b></a>
+              <div class="w3-border-bottom"></div>
+
+              <a href="#bill_payment" class="w3-bar-item w3-button"><b>Bill Payments</b></a>
+              <div class="w3-border-bottom"></div>
+
+              <a href="#ns_smart" class="w3-bar-item w3-button"><b>NS Mart (coming soon)</b></a>
+              <div class="w3-border-bottom"></div>
+
+            </div>
+
+          </div>
+        <!--</div>-->
+
+        <a href="#Wallet" class="w3-bar-item w3-button w3-large"><b>Wallet</b></a>
+        <a href="#transaction" class="w3-bar-item w3-button w3-large"><b>Transaction</b></a>
+        <a href="#downline" class="w3-bar-item w3-button w3-large"><b>Downline</b></a>
+      </span>
+
+      <span class="w3-right w3-hide-large">
+        <span class="fa-facebook-official"></span>
+        <!--<a href="#homepage" class="w3-bar-item w3-button w3-medium"><b>Homepage</b></a>
+        <a href="#services" class="w3-bar-item w3-button w3-medium"><b>Services</b></a>
+        <a href="#Wallet" class="w3-bar-item w3-button w3-medium"><b>Wallet</b></a>
+        <a href="#transaction" class="w3-bar-item w3-button w3-medium"><b>Transaction</b></a>
+        <a href="#downline" class="w3-bar-item w3-button w3-medium"><b>Downline</b></a>-->
+      </span>
+           
+    </div>
+  </section>
+
+  <br/><br/>
+
+
+<!-- Page Container -->
+<section class="w3-container w3-padding w3-margin w3-card-4 w3-white">
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+  
+    <!-- Left Column -->
+    <section id="col_one" class="w3-third">
+
+      <br/><br/>
+      <div class="w3-container w3-card-2 w3-round-xxlarge w3-teal w3-center w3-large">
+        <div>
+          <br/>
+          <b class="w3-large">Current Balance</b><br/>
+          <div class="w3-padding w3-margin w3-border w3-border-white">
+            NGN <b><span id="curret_balance"></span></b>
+          </div>
+        </div>
+
+        <div>
+          <br/>
+          <b class="w3-medium">Previous Balance</b><br/>
+          <span class="w3-padding w3-margin w3-border-white w3-small">
+            NGN <b><span id="previous_balance"></span></b>
+          </span>
+        </div>
+        <br/>
+
+        <div class="w3-padding w3-margin w3-large">
+          <div class="w3-btn w3-round-xxlarge w3-ripple w3-hover-green w3-click-green w3-deep-purple" onclick=" document.getElementById('walletModal').style.display='block' ">+ Fund Wallet
+          </div>
+        </div>
+
+      </div>
+    
+      <div class="w3-white w3-text-grey w3-card-4 w3-padding w3-margin w3-round w3-center w3-bottombar w3-border-deep-purple">
+
+        <div class="w3-display-container w3-large w3-border-bottom w3-border-deep-purple">
+          User Information
+        </div>
+
+        <div class="w3-container w3-center">
+
+          <div>
+            <p class="w3-large">
+              <span class="fa fa-briefcase fa-fw w3-text-teal"></span>
+              <b>Wallet ID</b>
+            </p>
+            <b><div class="w3-padding w3-margin w3-card-4 w3-border w3-round-xxlarge w3-text-teal w3-large" id="wallet_id"></div></b>
+          </div>
+
+          <div class="w3-border"></div>
+
+          <div>
+            <p class="w3-large">
+              <span class="fa fa-briefcase fa-fw w3-text-teal"></span>
+              <b>Providus Account Number</b>
+            </p>
+            <b><div class="w3-padding w3-margin w3-card-4 w3-border w3-round-xxlarge w3-text-teal w3-large" id="providus_acc"></div></b>
+          </div>
+
+          <div class="w3-border"></div>
+
+          <div>
+            <p class="w3-large">
+              <span class="fa fa-briefcase fa-fw w3-text-teal"></span>
+              <b>Current Membership Level</b>
+            </p>
+            <b><div class="w3-padding w3-margin w3-card-4 w3-border w3-round-xxlarge w3-text-teal w3-large" id="member_status"></div></b>
+          </div>
+
+          <div class="w3-border"></div>
+
+          <div>
+            <p class="w3-large">
+              <span class="fa fa-briefcase fa-fw w3-text-teal"></span>
+              <b>Referral Username <br/>(Your Upline) </b>
+            </p>
+            <b><div class="w3-padding w3-margin w3-card-4 w3-border w3-round-xxlarge w3-text-teal w3-large" id="referral_upline"></div></b>
+          </div>
+
+    <!-- End first Column -->
+    </section>
+
+    <!-- Start second Column -->
+     <section id="col_two" class="w3-third w3-">  
+      <br/><br/>
+
+      <div class="w3-container w3-card-2 w3-round-xxlarge w3-teal w3-center w3-large">
+        <p class="w3-padding w3-border-bottom">View Transaction History 
+          <span class="w3-btn w3-btn-round w3-green">View Details</span>
+        </p>
+
+        <div class="w3-border-bottom w3-padding w3-margin w3-border w3-round-xxlarge">
+          Transaction Date : <p class="trans_date"></p> 
+        </div>
+        
+
+        <div class="w3-border-bottom w3-padding w3-margin w3-border w3-round-xxlarge">
+          Transaction Time : <p class="trans_time"></p> 
+        </div>
+
+        <div class="w3-border-bottom w3-padding w3-margin w3-border w3-round-xxlarge">
+          Transaction Type : <p class="trans_type"></p> 
+        </div>
+
+        <div class="w3-border-bottom w3-padding w3-margin w3-border w3-round-xxlarge">
+          Last Transaction ID : <p class="trans_date"></p> 
+        </div>
+      </div>
+
+      <div class="w3-container w3-card-4 w3-padding w3-margin w3-bottombar w3-border-deep-purple w3-center w3-white">
+        <p class="w3-border-bottom w3-padding w3-border-deep-purple"><b>NSCOIN BONUS</b></p>
+        <p class="w3-padding w3-margin w3-card-4 w3-border w3-round-xxlarge w3-bold ">No NScoin bonus yet! <br/>(Fund your account to get NS coin bonus today!)</p><br/>
+
+        <span class="w3-border-bottom"></span>
+
+        <p class="w3-border-bottom"><b>Date created</b></p>
+         <p class="w3-padding w3-margin w3-card-4 4 w3-border w3-round-xxlarge w3-bold w3-bold ">
+          
+        </p>
+        <br/>
+
+      </div>
+
+    </section>
+
+    <section id="col_three" class="w3-third">  
+      <br/><br/>
+
+      <div class="w3-card-2 w3-round-xxlarge w3-teal w3-center w3-large">
+
+        <p class="w3-padding w3-border-bottom"><b>Activities</b></p>
+
+        <!-- The Grid -->
+        <div class="w3-row-padding">
+
+        <!--first half:-->
+        <div class="w3-half">
+
+          <div class="w3-container w3-card-4 w3-round-xlarge w3-bottombar w3-white w3-border-deep-purple">
+            <img src="img/airtime01.png" style="width:100%">
+            <div class="w3-container w3-padding w3-margin w3-border w3-round-xxlarge w3-green">
+              Trade Airtime
+            </div>
+          </div><br/>
+
+          <div class="w3-container w3-card-4 w3-round-xlarge w3-bottombar w3-white w3-border-deep-purple"><br/>
+            <img src="img/bill01.png" style="width:100%">
+            <div class="w3-container w3-padding w3-margin w3-border w3-round-xxlarge w3-green">
+              Pay Bills
+            </div>
+          </div><br/>
+
+          <div class="w3-container w3-card-4 w3-round-xlarge w3-bottombar w3-white w3-border-deep-purple"><br/>
+            <img src="img/bitcoin01.png" style="width:100%">
+            <div class="w3-container w3-padding w3-margin w3-border w3-round-xxlarge w3-green">
+              Trade Bitcoin
+            </div>
+          </div><br/>
+
+        </div>
+
+        <!--second half:-->
+        <div class="w3-half">
+          
+          <div class="w3-container w3-card-4 w3-round-xlarge w3-bottombar w3-white w3-border-deep-purple"><br/>
+            <img src="img/data01.png" style="width:100%">
+            <div class="w3-container w3-padding w3-margin w3-border w3-round-xxlarge w3-green">
+              Purchase Data
+            </div>
+          </div><br/>
+
+          <div class="w3-container w3-card-4 w3-round-xlarge w3-bottombar w3-white w3-border-deep-purple"><br/>
+           <img src="img/giftcard01.png" style="width:100%">
+            <div class="w3-container w3-padding w3-margin w3-border w3-round-xxlarge w3-green">
+              Buy and Load E-pin
+            </div>
+          </div><br/>
+
+          <div class="w3-container w3-card-4 w3-round-xlarge w3-bottombar w3-white w3-border-deep-purple"><br/>
+            <img src="img/logoNs.png" style="width:100%">
+            <div class="w3-container w3-padding w3-margin w3-border w3-round-xxlarge w3-green">
+              NS Mart<br/>(Coming soon)
+            </div>
+          </div><br/>
+
+        </div>
+      </div>
+
+      </div>
+    </section>
+  </div>
+</section>
+
+<!--The Modal section:-->
+<section>
+  
+    <!--fund wallet modal:-->
+  <div class="w3-modal" id="walletModal">
+    <div class="w3-modal-content w3-card-4 w3-border w3-round-xxlarge w3-animate-right">
+      
+        <header class="w3-container w3-padding w3-margin w3-border w3-center">
+          <h7><b>Hey there! fund your wallet through the options provided below:</b></h7>
+        </header>
+
+        <main class="w3-container w3-padding w3-margin w3-border w3-center">
+          
+          <!-- The Grid -->
+          <div class="w3-row-padding">
+  
+          <!-- Left Column -->
+          <section id="col_one" class="w3-half">
+
+            <div class="w3-container w3-card-2 w3-border w3-round-xlarge w3-padding w3-margin w3-bottombar w3-border-deep-purple">
+              Choose Preferred Funding method below:
+            </div>
+
+            <div class="w3-container w3-mobile w3-padding w3-center w3-card-4 w3-round-xxlarge w3-teal w3-large">
+
+                <div class="w3-padding w3-margin w3-btn w3-round-xxlarge w3-ripple w3-hover-green w3-click-green w3-deep-purple w3-center"><span class="w3-tag w3-green w3-circle">+</span> 
+                  <span class="w3-center">Direct Bank Funding</span>
+                </div>
+
+                <div class="w3-padding w3-margin w3-btn w3-round-xxlarge w3-ripple w3-hover-green w3-click-green w3-deep-purple w3-center"><span class="w3-tag w3-green w3-circle">+</span> Card Funding
+                </div>
+
+                <div class="w3-padding w3-margin w3-btn w3-round-xxlarge w3-ripple w3-hover-green w3-click-green w3-deep-purple w3-center"><span class="w3-tag w3-green w3-circle">+</span> Airtime Funding
+                </div>
+
+                <div class="w3-padding w3-margin w3-btn w3-round-xxlarge w3-ripple w3-hover-green w3-click-green w3-deep-purple w3-center"><span class="w3-tag w3-green w3-circle">+</span> Fund via Providus <br/>(Recommended)
+                </div>
+
+                <div class="w3-padding w3-margin w3-btn w3-round-xxlarge w3-ripple w3-hover-green w3-click-green w3-deep-purple w3-center"><span class="w3-tag w3-green w3-circle">+</span> Airtime Funding
+                </div>
+
+                <div class="w3-padding w3-margin w3-btn w3-round-xxlarge w3-ripple w3-hover-green w3-click-green w3-deep-purple w3-center"><span class="w3-tag w3-green w3-circle">+</span> View Saved Cards
+                </div>
+
+            </div>
+          </section>
+
+          <section class="w3-half">
+            <!--funding options content:-->
+            <div class="w3-container w3-padding w3-margin w3-card-4 w3-white w3-border w3-round-xxlarge w3-bottombar w3-border-green w3-small">
+              - Make payment directly into any of our bank account of your choice using any transfer method which include Bank deposit, USSD, Mobile and Internet banking etc.
+              <br/><br/>
+
+              - Your wallet will only be funded after we have confirmed your payment in our account. Please note that this process is manual and confirmation of payment is withing 30mins to 2hrs with no service charge or extra cost.
+              <br/><br/>
+
+              - Use Wallet id as description for payment.
+            </div>
+
+            <div>
+              <!--for direct-->
+              Amount
+              Select Bank
+              Sender Name
+              Sender Account Number
+
+              Submit
+            </div>
+
+          </section>
+
+        </div>
+        </main>
+
+        <footer>
+          <br/>
+        </footer>
+
+      </div>
+    </div>
+
+
+</section>
+
+<footer class="w3-display-container w3-black w3-center"><br/>
+
+  <div class="w3-container w3-padding w3-margin w3-border w3-round-xxlarge w3-border-green"><br/>
+    <p><b>Crafted and Powered by <a href=""><u>Tinuda Inc.</u></a></b></p>
+  </div>
+
+  <script src="./vendor/node_modules/requirejs/require.js"></script>
+
+  <!--page script section-->
+<script>
+
+  function showDrop(){
+    var x = document.getElementById("dropItems");
+
+    if(x.className.indexOf("w3-show") == -1){
+      x.className += " w3-show";
+    }else{
+      x.className = x.className.replace(" w3-show", "");
+    }
+  }
+
+</script>
+
+  <br/>
+</footer>
+
+
+</body></html>
